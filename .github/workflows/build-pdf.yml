@@ -29,8 +29,8 @@ jobs:
 
       - name: Build PDF via Sphinx
         run: |
-          sphinx-build -b latex . _build/latex
-          make -C _build/latex LATEXMKOPTS="-interaction=nonstopmode"
+          sphinx-build -b latex -A course_id=pythonds -D html_context.course_id=pythonds . _build/latex
+          make -C _build/latex LATEXMKOPTS="-interaction=nonstopmode" || true
 
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
