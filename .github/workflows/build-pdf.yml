@@ -16,10 +16,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install LaTeX
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
+            libcairo2-dev \
+            pkg-config \
             latexmk \
             texlive-xetex \
             texlive-latex-extra \
